@@ -180,14 +180,20 @@
   function cloudSvg(mode = "cloudy") {
     const extra =
       mode === "rain"
-        ? `<g stroke="#278dc2" stroke-width="5" stroke-linecap="round">
+        ? `<ellipse class="rain-glow" cx="49" cy="75" rx="32" ry="9" fill="#8ddfff" opacity="0.22"/>
+           <g stroke="#278dc2" stroke-width="5" stroke-linecap="round">
              <path class="rain-drop" d="M31 67l-4 12"/>
              <path class="rain-drop" d="M49 67l-4 12"/>
              <path class="rain-drop" d="M67 67l-4 12"/>
            </g>`
         : mode === "storm"
-          ? `<path class="lightning" d="M48 61 36 79h12l-4 15 19-25H51l6-8Z"
-               fill="#ffc928" stroke="#d79400" stroke-width="2"/>`
+          ? `<circle class="storm-flash" cx="48" cy="47" r="43" fill="#ffffff" opacity="0"/>
+             <g stroke="#278dc2" stroke-width="5" stroke-linecap="round">
+               <path class="rain-drop" d="M28 67l-4 12"/>
+               <path class="rain-drop" d="M66 67l-4 12"/>
+             </g>
+             <path class="lightning" d="M48 59 36 78h12l-4 16 20-27H52l6-8Z"
+               fill="#ffd447" stroke="#d79400" stroke-width="2"/>`
           : mode === "snow"
             ? `<g fill="#66b9d7" stroke="#66b9d7" stroke-width="2">
                  <path class="snow-flake" d="M28 68v17M20 76h16M22 70l12 12M34 70 22 82"/>
@@ -246,10 +252,7 @@
     `;
   }
 
-  function currentIconMarkup(description) {
-    const category = weatherCategory(description);
-    const night = isNightAtSelectedLocality();
-
+  function iconMarkupFromCategory(category, { night = false } = {}) {
     if (category === "clear") return night ? moonSvg(false) : sunSvg(false);
     if (category === "partly") return night ? moonSvg(true) : sunSvg(true);
     if (category === "cloudy") return cloudSvg("cloudy");
@@ -259,6 +262,25 @@
     if (category === "fog") return fogSvg();
     if (category === "wind") return windSvg();
     return unknownSvg();
+  }
+
+  function categoryFromEmoji(text) {
+    if (/⛈|⚡/.test(text)) return "storm";
+    if (/🌧|☔|💧/.test(text)) return "rain";
+    if (/❄|🌨/.test(text)) return "snow";
+    if (/🌫/.test(text)) return "fog";
+    if (/💨/.test(text)) return "wind";
+    if (/🌙/.test(text)) return "clear";
+    if (/☀/.test(text)) return "clear";
+    if (/⛅|🌤|🌥/.test(text)) return "partly";
+    if (/☁/.test(text)) return "cloudy";
+    return "unknown";
+  }
+
+  function currentIconMarkup(description) {
+    const category = weatherCategory(description);
+    const night = isNightAtSelectedLocality();
+    return iconMarkupFromCategory(category, { night });
   }
 
   function updateCurrentIcon() {
@@ -278,26 +300,25 @@
     state.updatingIcon = false;
   }
 
-  function classifyEmoji(text) {
-    if (/⛈|⚡/.test(text)) return "weather-storm";
-    if (/🌧|☔|💧/.test(text)) return "weather-rain";
-    if (/❄|🌨/.test(text)) return "weather-snow";
-    if (/🌫/.test(text)) return "weather-fog";
-    if (/💨/.test(text)) return "weather-wind";
-    if (/🌙/.test(text)) return "weather-night";
-    if (/☀/.test(text)) return "weather-clear";
-    if (/⛅|🌤/.test(text)) return "weather-partly";
-    if (/☁/.test(text)) return "weather-cloudy";
-    return "";
+  function forecastIconCategory(element) {
+    const raw = element.dataset.weatherSymbol || element.textContent || "";
+    const fromText = weatherCategory(raw);
+    return fromText === "unknown" ? categoryFromEmoji(raw) : fromText;
   }
 
   function animateForecastIcons() {
     document
-      .querySelectorAll(".mini-icon, .forecast-icon")
+      .querySelectorAll(".mini-icon, .forecast-icon, .period-head span:last-child")
       .forEach((element) => {
-        element.classList.add("weather-icon-animated");
-        const category = classifyEmoji(element.textContent);
-        if (category) element.classList.add(category);
+        const category = forecastIconCategory(element);
+        element.classList.add("weather-icon-animated", "weather-icon-svg");
+        element.dataset.weatherCategory = category;
+        if (!element.dataset.weatherSymbol) {
+          element.dataset.weatherSymbol = element.textContent.trim();
+        }
+        if (!element.querySelector(".wx-icon")) {
+          element.innerHTML = iconMarkupFromCategory(category, { night: false });
+        }
       });
   }
 

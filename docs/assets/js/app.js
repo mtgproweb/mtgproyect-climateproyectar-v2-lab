@@ -465,6 +465,43 @@
     return Number(value[0]) === Number(value[1]) ? `${value[0]}${suffix}` : `${value[0]}–${value[1]}${suffix}`;
   }
 
+
+  function periodValues(day, selector) {
+    return PERIODS
+      .map(([key]) => selector(day[key]))
+      .flat()
+      .map(Number)
+      .filter(Number.isFinite);
+  }
+
+  function maxFromPeriodRange(day, selector) {
+    const values = periodValues(day, (period) => {
+      const range = selector(period);
+      return Array.isArray(range) ? range : [];
+    });
+    return values.length ? Math.max(...values) : null;
+  }
+
+  function dailyHighlightHtml(day) {
+    const rainMax = maxFromPeriodRange(day, (period) => period?.rain_prob_range);
+    const windMax = maxFromPeriodRange(day, (period) => period?.wind?.speed_range);
+    const gustMax = maxFromPeriodRange(day, (period) => period?.gust_range);
+    const directions = [...new Set(PERIODS
+      .map(([key]) => day[key]?.wind?.direction)
+      .filter(Boolean))];
+    const availablePeriods = PERIODS.filter(([key]) => Boolean(day[key])).length;
+    const items = [
+      rainMax !== null ? ["Lluvia", `${number(rainMax)} %`] : null,
+      windMax !== null ? ["Viento", `${number(windMax)} km/h`] : null,
+      gustMax !== null ? ["Ráfagas", `${number(gustMax)} km/h`] : null,
+      directions.length ? ["Dirección", directions.slice(0, 2).join(" / ")] : null,
+      availablePeriods ? ["Detalle", `${availablePeriods} períodos`] : null,
+    ].filter(Boolean);
+
+    return items.length ? `<div class="daily-highlights">${items.map(([label, value]) => `
+      <span><small>${escapeHtml(label)}</small><strong>${escapeHtml(value)}</strong></span>`).join("")}</div>` : "";
+  }
+
   function renderSummaryForecast(days) {
     const visible = days.slice(0, 4);
     elements.summaryForecastGrid.innerHTML = visible.length ? visible.map((day) => {
@@ -508,6 +545,7 @@
         <div><span>Máxima</span><strong>${day.temp_max ?? "—"}°</strong></div>
         <div><span>Mínima</span><strong>${day.temp_min ?? "—"}°</strong></div>
       </div>
+      ${dailyHighlightHtml(day)}
       <div class="period-list">${periods || '<p class="muted">Sin detalle por período.</p>'}</div>
     </article>`;
   }
