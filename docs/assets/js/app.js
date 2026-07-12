@@ -395,24 +395,13 @@
   }
 
   function saveRecent(id) {
-    const values = [id, ...getRecentIds().filter((item) => item !== id)].slice(0, 5);
-    localStorage.setItem(RECENT_KEY, JSON.stringify(values));
-    renderRecent();
+    // WeatherVar: no mostramos búsquedas recientes para ahorrar espacio visual.
+    // Mantenemos la función para no romper el contrato interno de la app.
   }
 
   function renderRecent() {
-    const rows = getRecentIds().map((id) => state.rowsById.get(id)).filter(Boolean);
-    elements.recentList.innerHTML = "";
-    rows.forEach((row) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "chip";
-      button.textContent = displayName(row);
-      button.title = localityLabel(row);
-      button.addEventListener("click", () => selectLocality(Number(row[COL.id])));
-      elements.recentList.append(button);
-    });
-    elements.recentSearches.hidden = !rows.length;
+    if (elements.recentList) elements.recentList.innerHTML = "";
+    if (elements.recentSearches) elements.recentSearches.hidden = true;
   }
 
   function setUrl(id) {
@@ -1417,14 +1406,6 @@
     if (requestedId) {
       selectLocality(requestedId, { skipUrl: true, instant: true });
       cleanCurrentUrlForDefaultLocality(requestedId);
-      return;
-    }
-
-    const recentId = getRecentIds().map(validLocalityId).find(Boolean);
-    if (recentId) {
-      selectLocality(recentId, { skipUrl: true, instant: true, saveRecent: false });
-      cleanCurrentUrlForDefaultLocality(recentId);
-      elements.searchStatus.textContent = `${elements.searchStatus.textContent} · Localidad reciente.`;
       return;
     }
 

@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/styles.css?v=20260704-final">
-  <link rel="stylesheet" href="./assets/css/site-shell.css?v=20260712-white-ads-1">
-  <link rel="stylesheet" href="./assets/css/premium-polish.css?v=20260712-white-ads-1">
+  <link rel="stylesheet" href="./assets/css/site-shell.css?v=20260712-compact-blue-1">
+  <link rel="stylesheet" href="./assets/css/premium-polish.css?v=20260712-compact-blue-1">
 
   <script>
     (() => {
@@ -41,7 +41,7 @@
 
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script defer src="./assets/js/date-utils.js"></script>
-  <script defer src="./assets/js/app.js?v=20260712-latest-only-2"></script>
+  <script defer src="./assets/js/app.js?v=20260712-compact-blue-1"></script>
   <script defer src="./assets/js/final-enhancements.js?v=20260704-final"></script>
 </head>
 
@@ -132,12 +132,6 @@
             radar y satélite. La página abre en CABA y podés cambiar de
             localidad en cualquier momento.
           </p>
-
-          <div class="hero-highlights" aria-label="Características principales">
-            <span>10.601 localidades</span>
-            <span>Actualización automática</span>
-            <span>Datos oficiales</span>
-          </div>
         </div>
 
         <div class="search-card">
@@ -185,23 +179,10 @@
           <p id="search-status" class="search-status" role="status" aria-live="polite">
             Preparando Ciudad Autónoma de Buenos Aires…
           </p>
-
-          <div id="recent-searches" class="recent-searches" hidden>
-            <span>Recientes</span>
-            <div id="recent-list" class="chip-row"></div>
-          </div>
         </div>
+      </div>
       </div>
     </section>
-
-    <aside class="ad-ready-slot ad-ready-slot-top" aria-label="Espacio publicitario superior">
-      <div class="container">
-        <div class="ad-ready-inner">
-          <span>Publicidad</span>
-          <small>Espacio preparado para Google Ads</small>
-        </div>
-      </div>
-    </aside>
 
     <section class="content-wrap">
       <div class="container">
@@ -504,7 +485,7 @@
               <h2 id="tools-title">Mapas climáticos destacados</h2>
             </div>
             <p>
-              Accesos directos a los módulos de WeatherVar publicados desde Cloudflare Pages. Abrilos en una pestaña nueva para explorar el mapa completo.
+              Accesos directos a los mapas principales de WeatherVar. Abrilos en una pestaña nueva para explorar la información completa.
             </p>
           </div>
 
@@ -538,14 +519,14 @@
 
         <section class="site-directory" id="todas-las-paginas" aria-labelledby="directory-title">
           <div class="directory-heading">
-            <span class="directory-kicker"><i class="fa-solid fa-grip" aria-hidden="true"></i> Directorio WeatherVar</span>
-            <h2 id="directory-title">Páginas informativas del proyecto</h2>
-            <p>Estas URLs quedan limpias, sin <code>/p/</code>. Las vamos completando de a poco con contenido propio.</p>
+            <span class="directory-kicker"><i class="fa-solid fa-grip" aria-hidden="true"></i> Menú de páginas</span>
+            <h2 id="directory-title">Páginas de WeatherVar</h2>
+            <p>Información organizada por herramientas, regiones y provincias.</p>
           </div>
           <div class="directory-grid compact-directory">
-            <article class="directory-card"><div class="directory-card-head"><span class="directory-icon"><i class="fa-solid fa-cloud-sun-rain" aria-hidden="true"></i></span><strong>Pronóstico y mapas</strong></div><ul><li><a href="./mapa-de-alertas-meteorologicas-argentina/">Mapa de alertas meteorológicas</a></li><li><a href="./radar-de-lluvia-y-tormentas-argentina/">Radar de lluvia y tormentas</a></li><li><a href="./mapa-del-clima-actual-en-argentina/">Mapa del clima actual</a></li><li><a href="./pronostico-extendido-argentina/">Pronóstico extendido Argentina</a></li><li><a href="./clima-por-provincias-de-argentina/">Clima por provincias</a></li><li><a href="./alertas-amarilla-naranja-y-roja/">Alertas amarilla, naranja y roja</a></li><li><a href="./mapa-de-viento-en-argentina/">Mapa de viento</a></li><li><a href="./mapa-de-temperatura-en-argentina/">Mapa de temperatura</a></li><li><a href="./mapa-de-nubosidad-en-argentina/">Mapa de nubosidad</a></li><li><a href="./pronostico-del-tiempo-por-localidad/">Pronóstico por localidad</a></li></ul></article>
-            <article class="directory-card"><div class="directory-card-head"><span class="directory-icon"><i class="fa-solid fa-map" aria-hidden="true"></i></span><strong>Zonas y regiones</strong></div><ul><li><a href="./clima-en-costa-atlantica/">Costa Atlántica</a></li><li><a href="./clima-en-mar-del-plata/">Mar del Plata</a></li><li><a href="./clima-en-villa-gesell/">Villa Gesell</a></li><li><a href="./clima-en-pinamar/">Pinamar</a></li><li><a href="./clima-en-necochea/">Necochea</a></li><li><a href="./clima-en-miramar/">Miramar</a></li><li><a href="./clima-en-san-clemente-del-tuyu/">San Clemente del Tuyú</a></li><li><a href="./clima-en-santa-teresita/">Santa Teresita</a></li><li><a href="./clima-en-las-toninas/">Las Toninas</a></li><li><a href="./clima-en-amba/">AMBA</a></li><li><a href="./clima-en-ciudad-de-buenos-aires/">Ciudad de Buenos Aires</a></li><li><a href="./clima-en-gran-buenos-aires/">Gran Buenos Aires</a></li><li><a href="./clima-en-la-plata/">La Plata</a></li><li><a href="./clima-en-tigre/">Tigre</a></li><li><a href="./clima-en-san-isidro/">San Isidro</a></li><li><a href="./clima-en-ezeiza/">Ezeiza</a></li><li><a href="./clima-en-zona-norte/">Zona Norte</a></li><li><a href="./clima-en-zona-oeste/">Zona Oeste</a></li><li><a href="./clima-en-zona-sur/">Zona Sur</a></li><li><a href="./clima-en-patagonia/">Patagonia</a></li><li><a href="./clima-en-norte-argentino/">Norte Argentino</a></li><li><a href="./clima-en-cuyo/">Cuyo</a></li><li><a href="./clima-en-litoral-argentino/">Litoral Argentino</a></li><li><a href="./clima-en-region-pampeana/">Región Pampeana</a></li></ul></article>
-            <article class="directory-card"><div class="directory-card-head"><span class="directory-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><strong>Provincias y Antártida</strong></div><ul><li><a href="./clima-en-buenos-aires/">Buenos Aires</a></li><li><a href="./clima-en-catamarca/">Catamarca</a></li><li><a href="./clima-en-chaco/">Chaco</a></li><li><a href="./clima-en-chubut/">Chubut</a></li><li><a href="./clima-en-cordoba/">Córdoba</a></li><li><a href="./clima-en-corrientes/">Corrientes</a></li><li><a href="./clima-en-entre-rios/">Entre Ríos</a></li><li><a href="./clima-en-formosa/">Formosa</a></li><li><a href="./clima-en-jujuy/">Jujuy</a></li><li><a href="./clima-en-la-pampa/">La Pampa</a></li><li><a href="./clima-en-la-rioja/">La Rioja</a></li><li><a href="./clima-en-mendoza/">Mendoza</a></li><li><a href="./clima-en-misiones/">Misiones</a></li><li><a href="./clima-en-neuquen/">Neuquén</a></li><li><a href="./clima-en-rio-negro/">Río Negro</a></li><li><a href="./clima-en-salta/">Salta</a></li><li><a href="./clima-en-san-juan/">San Juan</a></li><li><a href="./clima-en-san-luis/">San Luis</a></li><li><a href="./clima-en-santa-cruz/">Santa Cruz</a></li><li><a href="./clima-en-santa-fe/">Santa Fe</a></li><li><a href="./clima-en-santiago-del-estero/">Santiago del Estero</a></li><li><a href="./clima-en-tierra-del-fuego/">Tierra del Fuego</a></li><li><a href="./clima-en-tucuman/">Tucumán</a></li><li><a href="./clima-en-antartida-argentina/">Antártida Argentina</a></li></ul></article>
+            <article class="directory-card"><button class="directory-card-head directory-toggle" type="button" aria-expanded="false"><span class="directory-head-main"><span class="directory-icon"><i class="fa-solid fa-cloud-sun-rain" aria-hidden="true"></i></span><strong>Pronóstico y mapas</strong></span><i class="fa-solid fa-chevron-down directory-chevron" aria-hidden="true"></i></button><ul><li><a href="./mapa-de-alertas-meteorologicas-argentina/">Mapa de alertas meteorológicas</a></li><li><a href="./radar-de-lluvia-y-tormentas-argentina/">Radar de lluvia y tormentas</a></li><li><a href="./mapa-del-clima-actual-en-argentina/">Mapa del clima actual</a></li><li><a href="./pronostico-extendido-argentina/">Pronóstico extendido Argentina</a></li><li><a href="./clima-por-provincias-de-argentina/">Clima por provincias</a></li><li><a href="./alertas-amarilla-naranja-y-roja/">Alertas amarilla, naranja y roja</a></li><li><a href="./mapa-de-viento-en-argentina/">Mapa de viento</a></li><li><a href="./mapa-de-temperatura-en-argentina/">Mapa de temperatura</a></li><li><a href="./mapa-de-nubosidad-en-argentina/">Mapa de nubosidad</a></li><li><a href="./pronostico-del-tiempo-por-localidad/">Pronóstico por localidad</a></li></ul></article>
+            <article class="directory-card"><button class="directory-card-head directory-toggle" type="button" aria-expanded="false"><span class="directory-head-main"><span class="directory-icon"><i class="fa-solid fa-map" aria-hidden="true"></i></span><strong>Zonas y regiones</strong></span><i class="fa-solid fa-chevron-down directory-chevron" aria-hidden="true"></i></button><ul><li><a href="./clima-en-costa-atlantica/">Costa Atlántica</a></li><li><a href="./clima-en-mar-del-plata/">Mar del Plata</a></li><li><a href="./clima-en-villa-gesell/">Villa Gesell</a></li><li><a href="./clima-en-pinamar/">Pinamar</a></li><li><a href="./clima-en-necochea/">Necochea</a></li><li><a href="./clima-en-miramar/">Miramar</a></li><li><a href="./clima-en-san-clemente-del-tuyu/">San Clemente del Tuyú</a></li><li><a href="./clima-en-santa-teresita/">Santa Teresita</a></li><li><a href="./clima-en-las-toninas/">Las Toninas</a></li><li><a href="./clima-en-amba/">AMBA</a></li><li><a href="./clima-en-ciudad-de-buenos-aires/">Ciudad de Buenos Aires</a></li><li><a href="./clima-en-gran-buenos-aires/">Gran Buenos Aires</a></li><li><a href="./clima-en-la-plata/">La Plata</a></li><li><a href="./clima-en-tigre/">Tigre</a></li><li><a href="./clima-en-san-isidro/">San Isidro</a></li><li><a href="./clima-en-ezeiza/">Ezeiza</a></li><li><a href="./clima-en-zona-norte/">Zona Norte</a></li><li><a href="./clima-en-zona-oeste/">Zona Oeste</a></li><li><a href="./clima-en-zona-sur/">Zona Sur</a></li><li><a href="./clima-en-patagonia/">Patagonia</a></li><li><a href="./clima-en-norte-argentino/">Norte Argentino</a></li><li><a href="./clima-en-cuyo/">Cuyo</a></li><li><a href="./clima-en-litoral-argentino/">Litoral Argentino</a></li><li><a href="./clima-en-region-pampeana/">Región Pampeana</a></li></ul></article>
+            <article class="directory-card"><button class="directory-card-head directory-toggle" type="button" aria-expanded="false"><span class="directory-head-main"><span class="directory-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><strong>Provincias y Antártida</strong></span><i class="fa-solid fa-chevron-down directory-chevron" aria-hidden="true"></i></button><ul><li><a href="./clima-en-buenos-aires/">Buenos Aires</a></li><li><a href="./clima-en-catamarca/">Catamarca</a></li><li><a href="./clima-en-chaco/">Chaco</a></li><li><a href="./clima-en-chubut/">Chubut</a></li><li><a href="./clima-en-cordoba/">Córdoba</a></li><li><a href="./clima-en-corrientes/">Corrientes</a></li><li><a href="./clima-en-entre-rios/">Entre Ríos</a></li><li><a href="./clima-en-formosa/">Formosa</a></li><li><a href="./clima-en-jujuy/">Jujuy</a></li><li><a href="./clima-en-la-pampa/">La Pampa</a></li><li><a href="./clima-en-la-rioja/">La Rioja</a></li><li><a href="./clima-en-mendoza/">Mendoza</a></li><li><a href="./clima-en-misiones/">Misiones</a></li><li><a href="./clima-en-neuquen/">Neuquén</a></li><li><a href="./clima-en-rio-negro/">Río Negro</a></li><li><a href="./clima-en-salta/">Salta</a></li><li><a href="./clima-en-san-juan/">San Juan</a></li><li><a href="./clima-en-san-luis/">San Luis</a></li><li><a href="./clima-en-santa-cruz/">Santa Cruz</a></li><li><a href="./clima-en-santa-fe/">Santa Fe</a></li><li><a href="./clima-en-santiago-del-estero/">Santiago del Estero</a></li><li><a href="./clima-en-tierra-del-fuego/">Tierra del Fuego</a></li><li><a href="./clima-en-tucuman/">Tucumán</a></li><li><a href="./clima-en-antartida-argentina/">Antártida Argentina</a></li></ul></article>
           </div>
         </section>
 
@@ -594,22 +575,25 @@
       </div>
     </section>
   </main>
-
   <footer id="global-footer">
-    <div class="site-container footer-grid-new">
+    <div class="site-container footer-compact">
       <div class="footer-brand-new">
         <a aria-label="WeatherVar - Inicio" class="site-logo footer-site-logo" href="./">
           <span class="site-logo-mark"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i></span>
           <span class="site-logo-copy"><strong>Weather<span>Var</span></strong><small>Clima de Argentina</small></span>
         </a>
-        <p>Información meteorológica basada en datos públicos del Servicio Meteorológico Nacional y otras fuentes abiertas. Ante una emergencia, seguí siempre las indicaciones oficiales.</p>
-        <div class="footer-badges"><span>Datos SMN</span><span>Cloudflare Pages</span><span>Cloudflare R2</span></div>
+        <p>Información meteorológica para Argentina basada en datos públicos y fuentes oficiales. Ante fenómenos severos, consultá siempre los canales del Servicio Meteorológico Nacional y autoridades locales.</p>
       </div>
-      <div><h3>Herramientas</h3><nav class="footer-links-new"><a href="./#tab-summary">Resumen</a><a href="./#tab-forecast">Pronóstico</a><a href="./#tab-alerts">Alertas</a><a href="./#tab-radar">Radar</a><a href="./#tab-satellite">Satélite</a></nav></div>
-      <div><h3>Mapas</h3><nav class="footer-links-new"><a href="https://mapa.weathervar.com/">Mapa nacional</a><a href="https://mundo.weathervar.com/">Mapa mundial</a><a href="./mapa-de-alertas-meteorologicas-argentina/">Mapa de alertas</a><a href="./radar-de-lluvia-y-tormentas-argentina/">Radar de lluvia</a></nav></div>
-      <div><h3>Proyecto</h3><nav class="footer-links-new"><a href="./acerca/">Acerca de WeatherVar</a><a href="./fuentes/">Fuentes y metodología</a><a href="./privacidad/">Privacidad</a><a href="./contacto/">Contacto</a></nav></div>
+
+      <nav class="footer-legal-links" aria-label="Información legal">
+        <a href="./aviso-legal/">Aviso legal</a>
+        <a href="./privacidad/">Política de privacidad</a>
+        <a href="./terminos-y-condiciones/">Términos y condiciones</a>
+        <a href="./politica-de-cookies/">Política de cookies</a>
+        <a href="./contacto/">Contacto</a>
+      </nav>
     </div>
-    <div class="site-container footer-bottom-new"><p>© WeatherVar · Información meteorológica para Argentina</p><p>Última actualización automática según disponibilidad de fuentes oficiales.</p></div>
+    <div class="site-container footer-bottom-new"><p>© 2026 WeatherVar. Todos los derechos reservados.</p><p>Información orientativa. Ante emergencias, seguí indicaciones oficiales.</p></div>
   </footer>
 
   <script>
@@ -642,6 +626,13 @@
         button.addEventListener("click", () => {
           const wrapper = button.closest(".mobile-accordion");
           const isOpen = wrapper?.classList.toggle("open");
+          button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      });
+      document.querySelectorAll(".directory-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".directory-card");
+          const isOpen = card?.classList.toggle("open");
           button.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
       });
